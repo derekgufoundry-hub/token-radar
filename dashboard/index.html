@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — the best token launch radar</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <h1>Token Radar</h1>
+      <p class="tagline">Every pre-token protocol worth watching, ranked by what the market already pays for one dollar of TVL.</p>
+    </div>
+    <div class="meta" id="meta"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="stats" id="stats" aria-label="Board statistics"></section>
+
+  <section class="method" id="method">
+    <h2>How the ranking works</h2>
+    <p id="method-text"></p>
+    <p class="method-note">No name is ever special-cased. The same arithmetic scores every row, and the detail view shows every factor behind each number. Change the model in the sandbox below and the whole board re-ranks in front of you.</p>
+  </section>
+
+  <section class="controls" aria-label="Board controls">
+    <div class="tabs" id="tabs" role="tablist">
+      <button data-tab="board" role="tab">Board</button>
+      <button data-tab="watchlist" role="tab">Watchlist</button>
+      <button data-tab="early" role="tab">Early finds</button>
+      <button data-tab="live" role="tab">Live tokens</button>
+    </div>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Search name or slug…" aria-label="Search protocols">
+      <select id="category" aria-label="Filter by category"></select>
+      <select id="chain" aria-label="Filter by chain"></select>
+      <select id="sort" aria-label="Sort board">
+        <option value="rank">Sort: rank</option>
+        <option value="implied">Sort: implied value</option>
+        <option value="tvl">Sort: TVL</option>
+        <option value="change">Sort: 7-day change</option>
+        <option value="age">Sort: age</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="board" id="board" aria-live="polite"></section>
+
+  <section class="sandbox" id="sandbox">
+    <h2>Model sandbox — change the model, watch the board move</h2>
+    <p class="sandbox-note">These sliders re-run the same model with different constants. Nothing is hidden: the top 10 below is the board the model would write.</p>
+    <div class="sliders" id="sliders"></div>
+    <div class="sandbox-out" id="sandbox-out"></div>
+    <button class="reset" id="sandbox-reset" type="button">Reset to radar-2</button>
+  </section>
+
+  <footer class="foot">
+    <p id="foot-note"></p>
+  </footer>
+</main>
+
+<aside class="drawer" id="drawer" aria-label="Protocol detail" hidden></aside>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
